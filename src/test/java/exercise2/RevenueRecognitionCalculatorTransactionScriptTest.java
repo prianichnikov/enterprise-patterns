@@ -1,5 +1,7 @@
 package exercise2;
 
+import exercise2.transactionscript.RevenueRecognitionTransactionScript;
+import exercise2.util.DBUtil;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -7,7 +9,7 @@ import org.junit.jupiter.api.Test;
 import java.math.BigDecimal;
 import java.sql.*;
 
-public class RevenueRecognitionTransactionScriptTest {
+public class RevenueRecognitionCalculatorTransactionScriptTest {
 
     private static Connection connection;
 

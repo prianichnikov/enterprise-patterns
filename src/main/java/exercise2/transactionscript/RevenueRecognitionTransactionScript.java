@@ -1,4 +1,6 @@
-package exercise2;
+package exercise2.transactionscript;
+
+import exercise2.util.DateUtil;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
