@@ -1,7 +1,5 @@
-package exercise2;
-
-import exercise2.transactionscript.RevenueRecognitionTransactionScript;
-import exercise2.util.DBUtil;
+import transactionscript.RevenueRecognitionTransactionScript;
+import util.DBUtil;
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;

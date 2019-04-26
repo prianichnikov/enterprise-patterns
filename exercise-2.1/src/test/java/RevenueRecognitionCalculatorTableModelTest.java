@@ -1,7 +1,5 @@
-package exercise2;
-
-import exercise2.tablemodel.*;
-import exercise2.util.DBUtil;
+import tablemodel.*;
+import util.DBUtil;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;

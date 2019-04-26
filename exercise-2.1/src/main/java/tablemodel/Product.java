@@ -1,4 +1,4 @@
-package exercise2.tablemodel;
+package tablemodel;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

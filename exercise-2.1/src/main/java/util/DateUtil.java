@@ -1,4 +1,4 @@
-package exercise2.util;
+package util;
 
 import java.sql.Date;
 import java.util.Calendar;
