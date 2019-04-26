@@ -1,5 +1,3 @@
-package exercise1;
-
 public class NameFactory {
 
     public NameFactory() {

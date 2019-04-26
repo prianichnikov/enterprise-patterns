@@ -1,5 +1,3 @@
-package exercise1;
-
 public class Namer {
 
     protected String frName;

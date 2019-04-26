@@ -6,7 +6,12 @@
 
     <groupId>info.prianichnikov.learn</groupId>
     <artifactId>enterprise-patterns</artifactId>
+    <packaging>pom</packaging>
     <version>1.0-SNAPSHOT</version>
+    <modules>
+        <module>exercise-1</module>
+        <module>exercise-2.1</module>
+    </modules>
 
     <dependencies>
         <dependency>
