@@ -3,11 +3,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class PersonDataGatewayImpl implements TableDataGateway<Person> {
+public class PersonTableDataGatewayImpl implements PersonTableDataGateway {
 
     private final Connection connection;
 
-    public PersonDataGatewayImpl(Connection connection) {
+    public PersonTableDataGatewayImpl(Connection connection) {
         this.connection = connection;
     }
 
@@ -30,34 +30,50 @@ public class PersonDataGatewayImpl implements TableDataGateway<Person> {
     }
 
     @Override
-    public Person add(Person person) throws SQLException {
+    public Person findByEmail(String email) throws SQLException {
+        String sql = "select id, first_name, last_name, email from person where email = ?";
+        PreparedStatement ps = connection.prepareStatement(sql);
+        ps.setString(1, email);
+        ResultSet rs = ps.executeQuery();
+        if (rs.first()) {
+            Person person = new Person();
+            person.setId(rs.getInt("id"));
+            person.setFirstName(rs.getString("first_name"));
+            person.setLastName(rs.getString("last_name"));
+            person.setEmail(rs.getString("email"));
+            return person;
+        } else {
+            return null;
+        }
+    }
+
+    @Override
+    public void add(int id, String firstName, String lastName, String email) throws SQLException {
         String sql = "insert into person (id, first_name, last_name, email) values (?, ?, ?, ?)";
         PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setInt(1, person.getId());
-        ps.setString(2, person.getFirstName());
-        ps.setString(3, person.getLastName());
-        ps.setString(4, person.getEmail());
+        ps.setInt(1, id);
+        ps.setString(2, firstName);
+        ps.setString(3, lastName);
+        ps.setString(4, email);
         ps.execute();
-        return findById(person.getId());
     }
 
     @Override
-    public Person update(Person person) throws SQLException {
+    public void update(int id, String firstName, String lastName, String email) throws SQLException {
         String sql = "update person set first_name = ?, last_name = ?, email = ? where id = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setString(1, person.getFirstName());
-        ps.setString(2, person.getLastName());
-        ps.setString(3, person.getEmail());
-        ps.setInt(4, person.getId());
+        ps.setString(1, firstName);
+        ps.setString(2, lastName);
+        ps.setString(3, email);
+        ps.setInt(4, id);
         ps.execute();
-        return findById(person.getId());
     }
 
     @Override
-    public void delete(Person person) throws SQLException {
+    public void delete(int id) throws SQLException {
         String sql = "delete from person where id = ?";
         PreparedStatement ps = connection.prepareStatement(sql);
-        ps.setInt(1, person.getId());
+        ps.setInt(1, id);
         ps.execute();
     }
 }
