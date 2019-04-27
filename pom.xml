@@ -13,6 +13,7 @@
         <module>exercise-2.1</module>
         <module>exercise-4.1</module>
         <module>exercise-4.3</module>
+        <module>exercise-4.4</module>
     </modules>
 
     <dependencies>
